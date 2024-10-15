@@ -6,5 +6,8 @@ namespace App\Service;
 
 interface NumberGeneratorInterface
 {
+    /**
+     * @return array<int, int>
+     */
     public static function generate(int $quantity, int $maxValue): array;
 }

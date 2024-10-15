@@ -62,11 +62,18 @@ final readonly class LottoGenerator
         );
     }
     
+    /**
+     * @param array<int, int> $numbers
+     * @param array<int, int> $extraNumbers
+     */
     private function generateOutputString(string $name, array $numbers, array $extraNumbers = []): string
     {
         return OutputStringGenerator::generate($name, $numbers, $extraNumbers);
     }
 
+    /**
+     * @return array<int, int>
+     */
     private function fillNumbers(int $quantity, int $maxValue): array
     {
         return NumbersGenerator::generate($quantity, $maxValue);

@@ -7,6 +7,10 @@ namespace App\Service;
 final readonly class NumbersGenerator implements NumberGeneratorInterface
 {
     private const MIN_VALUE = 1;
+
+    /**
+     * @return array<int, int>
+     */
     public static function generate(int $quantity, int $maxValue): array
     {
         $output = [];
