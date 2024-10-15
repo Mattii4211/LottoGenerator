@@ -11,8 +11,6 @@ use App\Game\Keno;
 
 final readonly class LottoGenerator 
 {
-    private const MIN_VALUE = 1;
-
     public function genearteEuroJackpot(): string
     {
         $standard = $this->fillNumbers(
@@ -71,17 +69,6 @@ final readonly class LottoGenerator
 
     private function fillNumbers(int $quantity, int $maxValue): array
     {
-        $output = [];
-        while (count($output) < $quantity) {
-            $number = rand(self::MIN_VALUE, $maxValue);
-            
-            if (!in_array($number, $output)) {
-                array_push($output,$number);
-            }
-        }
-
-        asort(array: $output);
-
-        return $output;
+        return NumbersGenerator::generate($quantity, $maxValue);
     }
 }
