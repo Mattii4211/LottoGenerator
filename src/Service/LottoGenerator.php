@@ -23,7 +23,7 @@ final readonly class LottoGenerator
         );
 
         return $this->generateOutputString(
-            (new \ReflectionClass(EuroJackpot::class))->getShortName(),
+            EuroJackpot::class,
             $standard, 
             $extra
         );
@@ -35,7 +35,7 @@ final readonly class LottoGenerator
             MiniLotto::getQuantity(), MiniLotto::getMax());
 
         return $this->generateOutputString(
-            (new \ReflectionClass(MiniLotto::class))->getShortName(),
+            MiniLotto::class,
             $numbers
         );
     }
@@ -45,7 +45,7 @@ final readonly class LottoGenerator
         $numbers = $this->fillNumbers(Lotto::getQuantity(), Lotto::getMax());
 
         return $this->generateOutputString(
-            (new \ReflectionClass(Lotto::class))->getShortName(), 
+            Lotto::class, 
             $numbers
         );
     }
@@ -57,7 +57,7 @@ final readonly class LottoGenerator
         $numbers = $this->fillNumbers($number ?? $quantity, Keno::getMax());
 
         return $this->generateOutputString(
-            (new \ReflectionClass(Keno::class))->getShortName(),
+            Keno::class,
             $numbers
         );
     }
@@ -66,9 +66,13 @@ final readonly class LottoGenerator
      * @param array<int, int> $numbers
      * @param array<int, int> $extraNumbers
      */
-    private function generateOutputString(string $name, array $numbers, array $extraNumbers = []): string
+    private function generateOutputString(string $class, array $numbers, array $extraNumbers = []): string
     {
-        return OutputStringGenerator::generate($name, $numbers, $extraNumbers);
+        return OutputStringGenerator::generate(
+            (new \ReflectionClass($class))->getShortName(), 
+            $numbers, 
+            $extraNumbers
+        );
     }
 
     /**
