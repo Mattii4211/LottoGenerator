@@ -8,6 +8,7 @@ use App\Game\EuroJackpot;
 use App\Game\Lotto;
 use App\Game\MiniLotto;
 use App\Game\Keno;
+use ReflectionClass;
 
 final readonly class LottoGenerator 
 {
@@ -69,7 +70,7 @@ final readonly class LottoGenerator
     private function generateOutputString(string $class, array $numbers, array $extraNumbers = []): string
     {
         return OutputStringGenerator::generate(
-            (new \ReflectionClass($class))->getShortName(), 
+            (new ReflectionClass(new $class))->getShortName(), 
             $numbers, 
             $extraNumbers
         );
