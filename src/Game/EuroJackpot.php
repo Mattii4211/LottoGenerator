@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Game;
 
-final readonly class EuroJackpot 
+final readonly class EuroJackpot implements ExtraGameInterface
 {
     private const STANDARD_MAX_VALUE = 50;
     private const STANDARD_QUANTITY = 5;

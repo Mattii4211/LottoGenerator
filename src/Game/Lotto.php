@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Game;
 
-final readonly class Lotto 
+final readonly class Lotto implements StandardGameInterface
 {
     private const MAX_VALUE = 49;
     private const QUANTITY = 6;

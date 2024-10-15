@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
-final readonly class OutputStringGenerator
+final readonly class OutputStringGenerator implements OutputGeneratorInterface
 {
     public static function generate(string $name, array $numbers, array $extraNumbers = []): string 
     {
