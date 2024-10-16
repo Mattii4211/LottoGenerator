@@ -7,7 +7,7 @@ namespace App\Game;
 final readonly class MiniLotto implements StandardGameInterface
 {
     private const MAX_VALUE = 42;
-    private const QUANTITY = 6;
+    private const QUANTITY = 5;
 
     public static function getMax(): int
     {
