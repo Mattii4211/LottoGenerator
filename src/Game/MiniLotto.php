@@ -4,18 +4,8 @@ declare(strict_types=1);
 
 namespace App\Game;
 
-final readonly class MiniLotto implements StandardGameInterface
+final readonly class MiniLotto extends StandardGame
 {
-    private const MAX_VALUE = 42;
-    private const QUANTITY = 5;
-
-    public static function getMax(): int
-    {
-        return self::MAX_VALUE;
-    }
-
-    public static function getQuantity(): int
-    {
-        return self::QUANTITY;
-    }
+    protected const MAX_VALUE = 42;
+    protected const QUANTITY = 5;
 }
