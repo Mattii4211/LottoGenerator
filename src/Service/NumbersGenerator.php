@@ -15,7 +15,7 @@ final readonly class NumbersGenerator implements NumberGeneratorInterface
     {
         $output = [];
         while (count($output) < $quantity) {
-            $number = rand(self::MIN_VALUE, $maxValue);
+            $number = random_int(self::MIN_VALUE, $maxValue);
             
             if (!in_array($number, $output)) {
                 array_push($output,$number);
